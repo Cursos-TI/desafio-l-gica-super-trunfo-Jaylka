@@ -104,82 +104,71 @@ int main(){
     printf("PIB per Capita: %.0f reais\n", pib_per_capita2); // %.0f: imprimir valor inteiro
     printf("Número de Pontos Turísticos: %d\n", ponto_turistico2);
     printf("Super Poder:%.2f\n", super_poder2);
-
-    // Comparando as propriedades das cartas 1 e 2
-    int pontos_carta1 = 0, pontos_carta2 = 0;
-
-    printf("##########################\n");
-    printf("COMPARADOR DE CARTAS\n");
-    printf("##########################\n");
-   
-    if (populacao1 > populacao2){
-        printf("Cidade 1 tem maior popupalção.\n");
-    } else {
-        printf("Cidade 2 tem a maior população.\n");
-    }
-
-    if (populacao1 > populacao2){
-        printf("Carta 1 tem maior popupalção.\n");
-    } else {
-        printf("Carta 2 tem a maior população.\n");
-    }
-
-    if (area1 > area2){
-        printf("Cidade 1 tem maior área.\n");
-    } else {
-        printf("Cidade 2 tem a maior área.\n");
-    }
-
-    if (pib1 > pib2){
-        printf("Cidade 1 tem maior PIB.\n");
-    } else {
-        printf("Cidade 2 tem a maior PIB.\n");
-    }
-
-    if (densidade_populacional1 < densidade_populacional2){
-        printf("Cidade 1 tem menor densidade populacional.\n");
-    } else {
-        printf("Cidade 2 tem menor densidade populacional.\n");
-    }
-
-    if (pib_per_capita1 > pib_per_capita2){
-        printf("Cidade 1 tem maior PIB per capita.\n");
-    } else {
-        printf("Cidade 2 tem a maior PIB per capita.\n");
-    }
-
+    // menu interativo switch
     int propriedade;
-    printf("Escolha a propriedade para comparação (1: Popupalção, 2: Àrea, 3: PIB, 4: Densidade Populacional, 5: PIB per Capita): ");
+    printf("******************************\n");
+    printf("****MENU DAS COMPARAÇÕES****\n");
+    printf("******************************\n");
+    printf("Escolha a propriedade para comparação:\n"); 
+    printf("1. População\n");   // opções para efetuar comparações
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Densidade Populacional\n");
+    printf("5. PIB per Capita\n");
+    printf("Escolha uma opção: ");
     scanf("%d", &propriedade);
-    
-     printf("##########################\n");
+
+    printf("##########################\n");
     printf("RESULTADO FINAL\n");
     printf("##########################\n");
-    if (propriedade == 1) { // População
-        if (populacao1 > populacao2) {
-            printf("Carta 1 vence na população.\n");
+    // Estrutura switch + lógica em estrutura if e else encadeada
+    switch (propriedade) {    
+    case 1:
+        if (propriedade == 1) { // População
+        if (populacao1 > populacao2)
+            printf("Carta 1 vence na propiedade: População.\n");
         } else {
-            printf("Carta 2 vence na população.\n");
+            printf("Carta 2 vence na propiedade: População.\n");
         }
-    } else if (propriedade == 2) { // Área
-        if (area1 > area2) {
-            printf("Carta 1 vence na área.\n");
+        break;
+    case 2:
+        if (propriedade == 2){
+        if (area1 > area2)
+            printf("Carta 1 vence na propiedade: Área.\n");
         } else {
-            printf("Carta 2 vence na área.\n");
+            printf("Carta 2 vence na propiedade: Àrea.\n");
         }
-    } else if (propriedade == 3) { // PIB
-        if (pib1 > pib2) {
-            printf("Carta 1 vence no PIB.\n");
+        
+        break;
+    case 3:
+        if (propriedade == 3) { // PIB
+        if (pib1 > pib2)
+            printf("Carta 1 vence na propiedade: PIB.\n");
         } else {
-            printf("Carta 2 vence no PIB.\n");
+            printf("Carta 2 vence na propiedade: PIB.\n");
         }
-    } else if (propriedade == 4) { // Densidade populacional
-        if (densidade_populacional1 < densidade_populacional2) {
-            printf("Carta 1 vence na densidade populacional.\n");
+        break; // pausa
+    case 4:
+        if (propriedade == 4) { // Densidade populacional
+        if (densidade_populacional1 < densidade_populacional2)
+            printf("Carta 1 vence na propiedade: densidade populacional.\n");
         } else {
-            printf("Carta 2 vence na densidade populacional.\n");
+            printf("Carta 2 vence na propiedade: densidade populacional.\n");
         }
-    } else if (propriedade == 5)
+        break;
+    case 5:
+        if (propriedade == 5) {
+        if (pib_per_capita1 > pib_per_capita2)
+            printf("Carta 1 vence na propiedade: PIB per Capita.\n");
+        } else {
+            printf("Carta 2 vence na propiedade: PIB per Capita.\n");
+        }
+        break;
+    default:
+        printf("Opção Inválida!\n");
+        break;
+    }
+
     return 0;
 
 }
