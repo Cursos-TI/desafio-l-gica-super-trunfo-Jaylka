@@ -104,71 +104,120 @@ int main(){
     printf("PIB per Capita: %.0f reais\n", pib_per_capita2); // %.0f: imprimir valor inteiro
     printf("Número de Pontos Turísticos: %d\n", ponto_turistico2);
     printf("Super Poder:%.2f\n", super_poder2);
-    // menu interativo switch
-    int propriedade;
+
+    int propriedade1, propriedade2;
     printf("******************************\n");
     printf("****MENU DAS COMPARAÇÕES****\n");
     printf("******************************\n");
-    printf("Escolha a propriedade para comparação:\n"); 
-    printf("1. População\n");   // opções para efetuar comparações
+    printf("Escolha a primeira propriedade para comparação:\n"); 
+    printf("1. População\n");
     printf("2. Área\n");
     printf("3. PIB\n");
     printf("4. Densidade Populacional\n");
     printf("5. PIB per Capita\n");
     printf("Escolha uma opção: ");
-    scanf("%d", &propriedade);
+    scanf("%d", &propriedade1);
+
+    printf("Escolha a segunda propriedade para comparação:\n"); 
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Densidade Populacional\n");
+    printf("5. PIB per Capita\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &propriedade2);
 
     printf("##########################\n");
     printf("RESULTADO FINAL\n");
     printf("##########################\n");
-    // Estrutura switch + lógica em estrutura if e else encadeada
-    switch (propriedade) {    
-    case 1:
-        if (propriedade == 1) { // População
-        if (populacao1 > populacao2)
-            printf("Carta 1 vence na propiedade: População.\n");
-        } else {
-            printf("Carta 2 vence na propiedade: População.\n");
+    
+    //Comparação das 2 propriedades escolhidas
+    int pontos_carta1, pontos_carta2;
+switch (propriedade1) {
+    case 1: // População
+        if (populacao1 > populacao2) {
+            pontos_carta1++;
+        } else if (populacao1 < populacao2) {
+            pontos_carta2++;
         }
         break;
-    case 2:
-        if (propriedade == 2){
-        if (area1 > area2)
-            printf("Carta 1 vence na propiedade: Área.\n");
-        } else {
-            printf("Carta 2 vence na propiedade: Àrea.\n");
-        }
-        
-        break;
-    case 3:
-        if (propriedade == 3) { // PIB
-        if (pib1 > pib2)
-            printf("Carta 1 vence na propiedade: PIB.\n");
-        } else {
-            printf("Carta 2 vence na propiedade: PIB.\n");
-        }
-        break; // pausa
-    case 4:
-        if (propriedade == 4) { // Densidade populacional
-        if (densidade_populacional1 < densidade_populacional2)
-            printf("Carta 1 vence na propiedade: densidade populacional.\n");
-        } else {
-            printf("Carta 2 vence na propiedade: densidade populacional.\n");
+    case 2: // Área
+        if (area1 > area2) {
+            pontos_carta1++;
+        } else if (area1 < area2) {
+            pontos_carta2++;
         }
         break;
-    case 5:
-        if (propriedade == 5) {
-        if (pib_per_capita1 > pib_per_capita2)
-            printf("Carta 1 vence na propiedade: PIB per Capita.\n");
-        } else {
-            printf("Carta 2 vence na propiedade: PIB per Capita.\n");
+    case 3: // PIB
+        if (pib1 > pib2) {
+            pontos_carta1++;
+        } else if (pib1 < pib2) {
+            pontos_carta2++;
+        }
+        break;
+    case 4: // Densidade Populacional
+        if (densidade_populacional1 > densidade_populacional2) {
+            pontos_carta1++;
+        } else if (densidade_populacional1 < densidade_populacional2) {
+            pontos_carta2++;
+        }
+        break;
+    case 5: // PIB per Capita
+        if (pib_per_capita1 > pib_per_capita2) {
+            pontos_carta1++;
+        } else if (pib_per_capita1 < pib_per_capita2) {
+            pontos_carta2++;
         }
         break;
     default:
         printf("Opção Inválida!\n");
+        return 0;
+}
+    // Segunda Propriedade
+switch (propriedade2) {
+    case 1: // População
+        if (populacao1 > populacao2) {
+            pontos_carta1++;
+        } else if (populacao1 < populacao2) {
+            pontos_carta2++;
+        }
         break;
-    }
+    case 2: // Área
+        if (area1 > area2) {
+            pontos_carta1++;
+        } else if (area1 < area2) {
+            pontos_carta2++;
+        }
+        break;
+    case 3: // PIB
+        if (pib1 > pib2) {
+            pontos_carta1++;
+        } else if (pib1 < pib2) {
+            pontos_carta2++;
+        }
+        break;
+    case 4: // Densidade Populacional
+        if (densidade_populacional1 > densidade_populacional2) {
+            pontos_carta1++;
+        } else if (densidade_populacional1 < densidade_populacional2) {
+            pontos_carta2++;
+        }
+        break;
+    case 5: // PIB per Capita
+        if (pib_per_capita1 > pib_per_capita2) {
+            pontos_carta1++;
+        } else if (pib_per_capita1 < pib_per_capita2) {
+            pontos_carta2++;
+        }
+        break;
+    default:
+        printf("Opção Inválida!\n");
+        return 0;
+}
+    // Verificando a carta vencedora
+(pontos_carta1 > pontos_carta2) ? printf("Carta 1 é a vencedora!\n") : //operador ternário
+(pontos_carta1 < pontos_carta2) ? printf("Carta 2 é a vencedora!\n") :
+    printf("Empate!\n");
 
-    return 0;
-
+return 0;
 }
